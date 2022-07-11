@@ -33,10 +33,10 @@ func Topic(name string) NotifySubscriber {
 	pub.mu.Lock()
 	defer pub.mu.Unlock()
 
-	pub.log.Debugf("get topic %s", name)
+	pub.log.Debugf("[pubsub] get topic %s", name)
 	t, ok := pub.topics[name]
 	if !ok {
-		pub.log.Debugf("create new '%s' topic", name)
+		pub.log.Debugf("[pubsub] create new '%s' topic", name)
 		t = &topic{
 			name:        name,
 			mu:          sync.Mutex{},
