@@ -15,6 +15,12 @@ type Publisher struct {
 var pub *Publisher = &Publisher{
 	topics: map[string]*topic{},
 	mu:     sync.Mutex{},
+	log:    log.Log,
+}
+
+// set a new logger
+func (p *Publisher) SetLogger(log log.Interface) {
+	p.log = log
 }
 
 // returns or creates a new topic
