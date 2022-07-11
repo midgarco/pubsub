@@ -19,6 +19,7 @@ func (t *topic) Notify(ctx context.Context, msg *Message) {
 	defer t.mu.Unlock()
 
 	msg.timestamp = time.Now()
+	msg.topic = t.name
 
 	pub.log.Debugf("[pubsub] notify all subscribers for %s", t.name)
 	// pass message to all subscrived Receivers
