@@ -18,6 +18,11 @@ var pub *Publisher = &Publisher{
 	log:    log.Log,
 }
 
+// return the singleton client
+func GetClient() *Publisher {
+	return pub
+}
+
 // set a new logger
 func (p *Publisher) SetLogger(log log.Interface) {
 	p.log = log
